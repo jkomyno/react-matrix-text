@@ -11,7 +11,7 @@ Small ReactJS component that renders a text in rows and columns
 
 ## The problem
 
-While discovering new designers to follow on Dribbble I bumped into [this awesome mockup](https://dribbble.com/shots/2078854-Core-Media-Hero-Exploration) which sports a matrix-like section
+While looking for new designers to follow on [Dribbble](https://dribbble.com) I bumped into [this awesome mockup](https://dribbble.com/shots/2078854-Core-Media-Hero-Exploration) which sports a matrix-like section
 with some stylish text in it, rendered across the rows and columns. I wanted to create a React component
 as simple and flexible as possible that would emulate the same behaviour, given a sentence and the number
 of columns I want it to be subdivided in.
@@ -19,7 +19,7 @@ of columns I want it to be subdivided in.
 ## This solution
 
 This component solves the problem while providing the maximum flexibility, with a really tiny API.
-This is possible because this library uses a [render prop][https://cdb.reacttraining.com/use-a-render-prop-50de598f11ce] thanks to which you are
+This is possible because this library uses a [render prop](https://cdb.reacttraining.com/use-a-render-prop-50de598f11ce) thanks to which you are
 the only responsible for the rendering of practically everything. You simply have to apply props to what you're
 rendering.
 This allows you to define your own HTML tags and classNames, without having to pass a bunch of `view` related

@@ -4,10 +4,10 @@ Small ReactJS component that renders a text in rows and columns
 
 --------------------------------
 
-[![Travis](https://img.shields.io/travis/jkomyno/eact-matrix-text.svg)](https://travis-ci.org/jkomyno/eact-matrix-text)
-[![npm](https://img.shields.io/npm/v/eact-matrix-text.svg)](https://npmjs.com/package/eact-matrix-text)
-[![npm](https://img.shields.io/npm/dm/eact-matrix-text.svg)](https://npmjs.com/package/eact-matrix-text)
-[![Issue Stats](https://img.shields.io/issuestats/i/github/jkomyno/eact-matrix-text.svg)]
+[![Travis](https://img.shields.io/travis/jkomyno/react-matrix-text.svg)](https://travis-ci.org/jkomyno/react-matrix-text)
+[![npm](https://img.shields.io/npm/v/react-matrix-text.svg)](https://npmjs.com/package/react-matrix-text)
+[![npm](https://img.shields.io/npm/dm/react-matrix-text.svg)](https://npmjs.com/package/react-matrix-text)
+[![Issue Stats](https://img.shields.io/issuestats/i/github/jkomyno/react-matrix-text.svg)]
 
 ## The problem
 
@@ -44,11 +44,11 @@ parameters every time.
 
 The compiled version of this module is distributed via [npm](https://www.npmjs.com/) and should be installed as one of your project `dependencies`.
 
-- `yarn add eact-matrix-text`
+- `yarn add react-matrix-text`
 
 Or, if you prefer using npm ([but you shouldn't](https://medium.com/@kaayru/what-is-yarn-and-should-we-use-it-dbd8c46de6a)):
 
-- `npm i -S eact-matrix-text`
+- `npm i -S react-matrix-text`
 
 It requires React ^16.0.0.
 

@@ -1,0 +1,14 @@
+[ignore]
+<PROJECT_ROOT>/example/*
+
+[include]
+
+[libs]
+<PROJECT_ROOT>/node_modules/flow/
+
+[lints]
+
+[options]
+
+[version]
+0.57.3

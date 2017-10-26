@@ -1,0 +1,61 @@
+{
+  "name": "react-matrix-text",
+  "version": "0.1.0",
+  "description": "Small ReactJS component that renders a text in rows and columns",
+  "keywords": [
+    "react",
+    "design",
+    "style",
+    "render",
+    "render pattern"
+  ],
+  "author": "Alberto Schiabel (https://github.com/jkomyno)",
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "files": [
+    "lib",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "clean": "rimraf ./lib",
+    "prebuild": "npm run clean",
+    "build": "babel src/ -d lib/",
+    "postbuild": "flow-copy-source ./src ./lib",
+    "build:watch": "npm run build -- -w",
+    "lint": "eslint ./src",
+    "flow": "flow",
+    "test": "jest --env=node __tests__",
+    "test:watch": "npm test -- --watch",
+    "test:cov": "npm test && codecov",
+    "test:ci": "npm run lint && npm run flow && npm run test:cov"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jkomyno/react-matrix-text.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jkomyno/react-matrix-text/issues"
+  },
+  "homepage": "https://github.com/jkomyno/react-matrix-text#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-eslint": "^8.0.1",
+    "babel-jest": "^21.0.2",
+    "babel-plugin-minify-constant-folding": "^0.2.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-react": "^6.24.1",
+    "codecov": "^2.3.0",
+    "eslint": "^4.8.0",
+    "eslint-config-airbnb-base": "^12.0.1",
+    "eslint-plugin-import": "^2.7.0",
+    "flow-bin": "0.57.3",
+    "flow-copy-source": "^1.2.1",
+    "jest": "^21.0.2"
+  },
+  "dependencies": {
+    "react": "^16.0.0"
+  }
+}

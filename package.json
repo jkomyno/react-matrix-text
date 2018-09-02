@@ -1,6 +1,6 @@
 {
   "name": "react-matrix-text",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Small ReactJS component that renders a text in rows and columns",
   "keywords": [
     "react",
@@ -15,6 +15,7 @@
   "author": "Alberto Schiabel (https://github.com/jkomyno)",
   "license": "MIT",
   "main": "./lib/index.js",
+  "typings": "./lib/index.d.ts",
   "files": [
     "lib",
     "LICENSE",
@@ -23,7 +24,7 @@
   "scripts": {
     "clean": "rimraf ./lib",
     "prebuild": "npm run clean && npm run lint",
-    "build": "tsc",
+    "build": "tsc --declaration",
     "lint": "tslint -c tslint.json -p tsconfig.json",
     "test": "jest",
     "test:watch": "npm run test -- --watchAll",

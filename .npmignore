@@ -1,10 +1,11 @@
-__tests__
-coverage
-src
-example
 .editorconfig
-tslint.json
 .npmignore
 .travis.yml
-yarn.lock
+__tests__
+coverage
+example
 jest.config.js
+src
+tsconfig.json
+tslint.json
+yarn.lock

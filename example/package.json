@@ -1,29 +1,24 @@
 {
   "name": "example",
   "version": "0.1.0",
-  "private": false,
-  "devDependencies": {
-    "react-scripts": "1.0.14"
-  },
+  "private": true,
   "dependencies": {
-    "node-sass-chokidar": "^0.0.3",
-    "npm-run-all": "^4.1.1",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-matrix-text": "^0.1.0"
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-matrix-text": "../",
+    "react-scripts-ts": "2.17.0"
   },
   "scripts": {
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "build-css": "node-sass-chokidar src/ -o src/",
-    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
-    "start-js": "react-scripts start",
-    "start": "npm-run-all -p watch-css start-js",
-    "build": "npm run build-css && react-scripts build"
+    "start": "react-scripts-ts start",
+    "build": "react-scripts-ts build",
+    "test": "react-scripts-ts test --env=jsdom",
+    "eject": "react-scripts-ts eject"
   },
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
-  "main": "index.js",
-  "keywords": [],
-  "author": "Alberto Schiabel <alberto.schiabel@gmail.com> (jkomyno)",
-  "license": "MIT"
+  "devDependencies": {
+    "@types/jest": "^23.3.1",
+    "@types/node": "^10.9.4",
+    "@types/react": "^16.4.13",
+    "@types/react-dom": "^16.0.7",
+    "typescript": "^3.0.3"
+  }
 }

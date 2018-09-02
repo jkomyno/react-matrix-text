@@ -1,0 +1,13 @@
+.container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  max-width: 35vw;
+  min-width: 400px;
+  height: 70vh;
+  background: #fff;
+  box-shadow: 0 1em 4em rgba(0, 0, 0, .3);
+}

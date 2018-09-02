@@ -16,7 +16,7 @@ with some stylish text in it, rendered across the rows and columns. I wanted to 
 as simple and flexible as possible that would emulate the same behaviour, given a sentence and the number
 of columns I want it to be subdivided in.
 
-## This solution
+## The solution
 
 This component solves the problem while providing the maximum flexibility, with a really tiny API.
 This is possible because this library uses a [render prop](https://cdb.reacttraining.com/use-a-render-prop-50de598f11ce) thanks to which you are
@@ -36,7 +36,6 @@ parameters every time.
 - [Example](#example)
 - [Typings](#typings)
 - [Available scripts](#available-scripts)
-- [Related Projects](#related-projects)
 - [License](#license)
 - [Contributing](#contributing)
 
@@ -70,15 +69,15 @@ This is the number of columns of the resulting matrix.
 
 ### renderRow
 
-> `(cols: Array<React.ComponentType<{}>>) => React.ComponentType<>` | defaults to `(cols) => <div className="row">{cols}</div>`
+> `(columns: JSX.Element[]) => JSX.Element`
 
-This is the callback prop which renders the rows of the resulting matrix. It receives a `cols` array of React Components (the rendered columns) and has to return the wrapper for them.
+This is the callback prop which renders the rows of the resulting matrix. It receives a `columns` array of React Components (the rendered columns) and has to return the wrapper component for them.
 
-### renderCol
+### renderColumn
 
-> `(c: string) => React.ComponentType<{}>` | defaults to: `(char) => <span>{char}</span>`
+> `(char: string) => JSX.Element`
 
-This is the callback prop which renders the single columns of the resulting matrix. It receives a `char` as argument (the current character of the sentence) and has to return the wrapper for it.
+This is the callback prop which renders the single columns of the resulting matrix. It receives a `char` string as argument (the current character of the sentence) and has to return the wrapper component for it.
 
 ## Example
 
@@ -86,24 +85,17 @@ An example React app which uses this module is located in the [example folder](/
 
 ## Typings
 
-This project uses Flow as its type system. It automatically exports *.flow files, but not *.ts. If you do know
-how to automatically export TypeScript bindings without writing the same types twice, please let me know by
-opening a Pull Request.
+While this project used the Flow type system until version `0.1.0`, it is now entirely written in TypeScript 3.0.
 
 ## Available Scripts
 
 - `clean`: Deletes the compiled lib folder;
-- `build`: Runs the clean script, transpiles the code with babel to the lib folder and copies the flow references;
-- `build:watch`: Runs the build script in watch mode
-- `lint`: Runs eslint
-- `flow`: Verifies if there are flow errors;
+- `build`: Runs the clean script and compiles `src/**/*.(ts|x)` files to `lib/**/*.js`;
+- `lint`: Runs tslint;
 - `test`: Runs the test suites with jest;
 - `test:watch`: Runs the tests in watch mode;
 - `test:cov`: Runs the tests and displays coverage
-- `test:ci`: Tests lint, flow, and jest errors
-
-You can build your own light version of setting the env.targets property in .babelrc to `"node": "current"`.
-The version deployed to npm requires NodeJS 6.0.0.
+- `test:ci`: Tests lint, and jest errors at once
 
 ## License
 

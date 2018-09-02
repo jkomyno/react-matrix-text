@@ -2,9 +2,9 @@ __tests__
 coverage
 src
 example
-.babelrc
 .editorconfig
-.eslint*
+tslint.json
 .npmignore
 .travis.yml
 yarn.lock
+jest.config.js

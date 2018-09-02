@@ -1,6 +1,6 @@
 import {
-  getCharArray,
   chunkify,
+  getCharArray,
 } from '../src/utils';
 
 describe('getCharArray', () => {

@@ -34,6 +34,7 @@ parameters every time.
   - [renderRow](#renderrow)
   - [renderColumn](#rendercolumn)
 - [Example](#example)
+  - [Result](#result)
 - [Typings](#typings)
 - [Available scripts](#available-scripts)
 - [License](#license)
@@ -82,6 +83,10 @@ This is the callback prop which renders the single columns of the resulting matr
 ## Example
 
 An example React app which uses this module is located in the [example folder](/example).
+
+### Result
+
+![Example image](./images/result.jpg)
 
 ## Typings
 

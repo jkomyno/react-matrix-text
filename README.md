@@ -1,6 +1,6 @@
 # react-matrix-text
 
-Small ReactJS component that renders a text in rows and columns
+ReactJS component that splits and renders a text in a given number of columns.
 
 --------------------------------
 
@@ -56,33 +56,106 @@ It requires React ^16.0.0.
 
 ## Props
 
-### sentence
-
-> `string` | defaults to `''`
-
-Sentence to split into a matrix. Spaces (' ') will be removed.
-
 ### columns
 
 > `number` | defaults to `3`
 
-This is the number of columns of the resulting matrix.
+The number of columns of the resulting matrix.
+
+### sentence
+
+> `string` | defaults to `''`
+
+Sentence to split into the matrix. Spaces will be removed, but punctuation marks will be kept.
 
 ### renderRow
 
-> `(columns: JSX.Element[]) => JSX.Element`
+> `(columns: JSX.Element[], rowIndex: number) => JSX.Element`
 
-This is the callback prop which renders the rows of the resulting matrix. It receives a `columns` array of React Components (the rendered columns) and has to return the wrapper component for them.
+The callback prop which renders the rows of the resulting matrix.
+It receives a `columns` array of React Components (the rendered columns) and the index of the current row, and must return the wrapper component for them.
 
 ### renderColumn
 
-> `(char: string) => JSX.Element`
+> `(char: string, rowIndex: number, columnIndex: number) => JSX.Element`
 
-This is the callback prop which renders the single columns of the resulting matrix. It receives a `char` string as argument (the current character of the sentence) and has to return the wrapper component for it.
+The callback prop which renders the single columns of the resulting matrix.
+It receives a `char` string as argument (the current character of the sentence) and must return the wrapper component for it.
+
+### getRowKey
+
+> `(charsForRow: string[], rowIndex: number) => string`
+
+Callback that should return the key to be applied to a certain row, provided the array of characters to be rendered, and the index of the current row.
+The default generated key has the pattern `row_${rowIndex}_${charsForRow.join('')}`.
+
+### getColumnKey
+
+> `(char: string, rowIndex: number, columnIndex: number) => string`
+
+Callback that should return the key to be applied to a certain column, provided the character to be rendered, the index of the current row, and the index of the current column.
+The default generated key has the pattern `column_${rowIndex}_${columnIndex}_${char}`.
 
 ## Example
 
 An example React app which uses this module is located in the [example folder](/example).
+
+## Keys
+
+Since version `1.1.0`, there's the possibility to inject custom keys to the generated rows and columns.
+Let's first take a look at the default behaviour:
+
+```jsx
+<MatrixText
+  number={3}
+  sentence="This is"
+  renderRow={(columns, rowIndex) => <div className="row">{columns}</div>}
+  renderColumn={(char, rowIndex, columnIndex) => <span>{char}</span>}
+/>
+```
+
+The interpreted JSX is the following:
+
+```html
+  <div key="row_0_THI" className="row">
+    <span key="col_0_0_E">T</span>
+    <span key="col_0_1_E">H</span>
+    <span key="col_0_2_E">I</span>
+  </div>
+  <div key="row_1_SIS" className="row">
+    <span key="col_1_0_E">S</span>
+    <span key="col_1_1_E">I</span>
+    <span key="col_1_2_E">S</span>
+  </div>
+```
+
+With custom keys, the situation is the following:
+
+```jsx
+<MatrixText
+  number={3}
+  sentence="This is"
+  renderRow={(columns, rowIndex) => <div className="row">{columns}</div>}
+  renderColumn={(char, rowIndex, columnIndex) => <span>{char}</span>}
+  getColumnKey={(char, rowIndex, columnIndex) => `c${rowIndex}/${columnIndex}/${char}`}
+  getRowKey={(charsForRow, rowIndex) => `r${index}`}
+/>
+```
+
+The interpreted JSX is now the following:
+
+```html
+  <div key="r0" className="row">
+    <span key="c0/0/E">T</span>
+    <span key="c/0/1/E">H</span>
+    <span key="c/0/2/E">I</span>
+  </div>
+  <div key="r1" className="row">
+    <span key="c/1/0/E">S</span>
+    <span key="c/1/1/E">I</span>
+    <span key="c/1/2/E">S</span>
+  </div>
+```
 
 ### Result
 
@@ -90,7 +163,7 @@ An example React app which uses this module is located in the [example folder](/
 
 ## Typings
 
-While this project used the Flow type system until version `0.1.0`, it is now entirely written in TypeScript 3.0.
+While this project used the Flow type system until version `0.1.0`, but it's entirely written in TypeScript 3.0 since version `1.0.0`.
 
 ## Available Scripts
 

@@ -38,8 +38,8 @@ class App extends React.Component {
     );
   }
 
-  private renderRow = (columns: JSX.Element[]) => <div className="row">{columns}</div>;
-  private renderColumn = (char: string) => <span>{char}</span>;
+  private renderRow = (columns: JSX.Element[], rowIndex: number) => <div className="row">{columns}</div>;
+  private renderColumn = (char: string, rowIndex: number, columnIndex?: number) => <span>{char}</span>;
 }
 
 export default App;

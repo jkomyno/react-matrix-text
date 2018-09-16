@@ -5,14 +5,17 @@ module.exports = {
 		}
 	},
 	moduleFileExtensions: [
-		'ts',
-		'js'
+    'js',
+    'jsx',
+    'ts',
+    'tsx'
 	],
 	transform: {
 		'^.+\\.(ts|tsx)$': 'ts-jest'
 	},
 	testMatch: [
-		'**/__tests__/**/*.test.(ts|js)'
+		'**/__tests__/**/*.test.(ts|js|tsx|jsx)'
 	],
-	testEnvironment: 'node'
+  testEnvironment: 'node',
+  setupTestFrameworkScriptFile: '<rootDir>/__tests__/setup.ts',
 };

@@ -1,7 +1,7 @@
 import {
   chunkify,
   getCharArray,
-} from '../src/utils';
+} from '../../src/utils';
 
 describe('getCharArray', () => {
   it ('should return the sentence without spaces in an array of its chars', () => {

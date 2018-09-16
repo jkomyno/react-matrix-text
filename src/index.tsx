@@ -5,11 +5,45 @@ import {
 } from './utils';
 
 export interface Props {
-  columns?: number,
-  sentence?: string,
-  renderColumn: (char: string, rowIndex: number, columnIndex: number) => JSX.Element,
-  renderRow: (columns: JSX.Element[], rowIndex: number) => JSX.Element,
+  /**
+   * The number of columns of the resulting matrix.
+   */
+  columns?: number;
+
+  /**
+   * The callback prop which renders the rows of the resulting matrix.
+   * It receives a `columns` array of React Components (the rendered columns)
+   * and the index of the current row, and must return the wrapper component
+   * for them.
+   */
+  renderColumn: (char: string, rowIndex: number, columnIndex: number) => JSX.Element;
+  
+  /**
+   * The callback prop which renders the single columns of the resulting matrix.
+   * It receives a `char` string as argument (the current character of the sentence)
+   * and must return the wrapper component for it.
+   */
+  renderRow: (columns: JSX.Element[], rowIndex: number) => JSX.Element;
+
+  /**
+   * Sentence to split into the matrix.
+   * Spaces will be removed, but punctuation marks will be kept.
+   */
+  sentence?: string;
+
+  /**
+   * Callback that should return the key to be applied to a certain row,
+   * provided the array of characters to be rendered, and the index of the current row.
+   * The default generated key has the pattern `row_${rowIndex}_${charsForRow.join('')}`.
+   */
   getRowKey?: (charsForRow: string[], rowIndex: number) => string;
+
+  /**
+   * Callback that should return the key to be applied to a certain column,
+   * provided the character to be rendered, the index of the current row, and the
+   * index of the current column.
+   * The default generated key has the pattern `column_${rowIndex}_${columnIndex}_${char}`.
+   */
   getColumnKey?: (char: string, rowIndex: number, columnIndex: number) => string;
 };
 

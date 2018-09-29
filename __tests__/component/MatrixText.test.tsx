@@ -1,7 +1,8 @@
 /* tslint:disable */
 import { shallow } from 'enzyme';
 import * as React from 'react';
-import trim from 'string.prototype.trim'; // required in enzyme
+// @ts-ignore
+import * as trim from 'string.prototype.trim'; // imported in enzyme
 import MatrixText, { Props } from '../../src/index';
 
 const setup = (columns = 3, sentence = 'THIS IS CORE MEDIA') => {
